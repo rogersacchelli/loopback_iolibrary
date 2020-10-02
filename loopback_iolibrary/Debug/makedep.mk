@@ -8,6 +8,8 @@ main.c
 
 socket.c
 
+spi.c
+
 usart.c
 
 w5500.c

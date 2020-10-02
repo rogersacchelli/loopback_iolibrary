@@ -23,6 +23,8 @@ void USART_Transmit( unsigned char data )
 
 unsigned char USART_Receive( void )
 {
+	// transmit dummy byte - this by wont be read by the other side
+	SPDR = 0xFF;
 	/* Wait for data to be received */
 	while ( !(UCSR0A & (1<<RXC0)) );
 	/* Get and return received data from buffer */

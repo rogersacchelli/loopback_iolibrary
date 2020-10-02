@@ -41,6 +41,7 @@ C_SRCS +=  \
 ../loopback.c \
 ../main.c \
 ../socket.c \
+../spi.c \
 ../usart.c \
 ../w5500.c \
 ../wizchip_conf.c
@@ -56,6 +57,7 @@ OBJS +=  \
 loopback.o \
 main.o \
 socket.o \
+spi.o \
 usart.o \
 w5500.o \
 wizchip_conf.o
@@ -64,6 +66,7 @@ OBJS_AS_ARGS +=  \
 loopback.o \
 main.o \
 socket.o \
+spi.o \
 usart.o \
 w5500.o \
 wizchip_conf.o
@@ -72,6 +75,7 @@ C_DEPS +=  \
 loopback.d \
 main.d \
 socket.d \
+spi.d \
 usart.d \
 w5500.d \
 wizchip_conf.d
@@ -80,6 +84,7 @@ C_DEPS_AS_ARGS +=  \
 loopback.d \
 main.d \
 socket.d \
+spi.d \
 usart.d \
 w5500.d \
 wizchip_conf.d
@@ -113,6 +118,13 @@ LINKER_SCRIPT_DEP+=
 	
 
 ./socket.o: .././socket.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)R:\Apps\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"R:\Apps\Atmel\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "R:\Apps\Atmel\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./spi.o: .././spi.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)R:\Apps\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"R:\Apps\Atmel\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "R:\Apps\Atmel\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -38,6 +38,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../avr_utils.c \
 ../loopback.c \
 ../main.c \
 ../socket.c \
@@ -54,6 +55,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+avr_utils.o \
 loopback.o \
 main.o \
 socket.o \
@@ -63,6 +65,7 @@ w5500.o \
 wizchip_conf.o
 
 OBJS_AS_ARGS +=  \
+avr_utils.o \
 loopback.o \
 main.o \
 socket.o \
@@ -72,6 +75,7 @@ w5500.o \
 wizchip_conf.o
 
 C_DEPS +=  \
+avr_utils.d \
 loopback.d \
 main.d \
 socket.d \
@@ -81,6 +85,7 @@ w5500.d \
 wizchip_conf.d
 
 C_DEPS_AS_ARGS +=  \
+avr_utils.d \
 loopback.d \
 main.d \
 socket.d \
@@ -103,6 +108,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+./avr_utils.o: .././avr_utils.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)R:\Apps\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"R:\Apps\Atmel\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "R:\Apps\Atmel\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ./loopback.o: .././loopback.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0

@@ -135,6 +135,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="avr_utils.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avr_utils.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="loopback.c">
       <SubType>compile</SubType>
     </Compile>

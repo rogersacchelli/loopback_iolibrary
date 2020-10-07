@@ -690,6 +690,8 @@ extern "C" {
 
 //#define Sn_TSR(N)          (_W5500_IO_BASE_ + (0x0030 << 8) + (WIZCHIP_SREG_BLOCK(N) << 3))
 
+#define Sn_RX_BUF(N)	(_W5500_IO_BASE_ + (0x0028 << 8) + (WIZCHIP_RXBUF_BLOCK(N) << 3))
+
 
 //----------------------------- W5500 Register values  -----------------------------
 

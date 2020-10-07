@@ -20,7 +20,8 @@ main.d main.o: .././main.c \
  r:\apps\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  r:\apps\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  r:\apps\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
- .././usart.h .././wizchip_conf.h .././w5500.h .././socket.h .././spi.h
+ .././usart.h .././wizchip_conf.h .././w5500.h .././socket.h .././spi.h \
+ .././avr_utils.h
 
 r:\apps\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -73,3 +74,5 @@ r:\apps\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 .././socket.h:
 
 .././spi.h:
+
+.././avr_utils.h:
